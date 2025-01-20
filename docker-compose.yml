@@ -1,0 +1,11 @@
+services:
+
+  mail-dev:
+    image: maildev/maildev
+    container_name: mail-dev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+    restart: always
+
+

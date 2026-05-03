@@ -1,0 +1,25 @@
+services:
+  #  postgres
+  postgres:
+    image: postgres:18.1-bookworm
+    container_name: infra-postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: microservices
+
+    networks:
+      - microservices-net
+    volumes:
+      - postgres-data:/var/lib/postgresql
+
+networks:
+  microservices-net:
+    driver: bridge
+
+volumes:
+  postgres-data:
+    driver: local

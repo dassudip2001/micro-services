@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { UserService } from '../../user-service';
 
 @Component({
   selector: 'app-dashboard-ui',
@@ -6,4 +7,13 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard-ui.html',
   styleUrl: './dashboard-ui.css',
 })
-export class DashboardUi {}
+export class DashboardUi implements OnInit{
+  #_us=inject(UserService);
+
+  ngOnInit(): void {
+    this.#_us.get().subscribe((data)=>{
+      console.log(".................");
+
+    })
+  }
+}

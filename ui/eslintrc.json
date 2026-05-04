@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*", "dist/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error", { "type": "attribute", "prefix": "app", "style": "camelCase" }
+        ],
+        "@angular-eslint/component-selector": [
+          "error", { "type": "element", "prefix": "app", "style": "kebab-case" }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/explicit-function-return-type": "warn",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "eqeqeq": ["error", "always"],
+        "no-var": "error",
+        "prefer-const": "error",
+        "arrow-body-style": ["error", "as-needed"]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+        "@angular-eslint/template/no-negated-async": "error",
+        "@angular-eslint/template/use-track-by-function": "warn"
+      }
+    }
+  ]
+}

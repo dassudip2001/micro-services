@@ -4,7 +4,6 @@ import { canActivateAuth } from './core/auth-gard-guard';
 export const routes: Routes = [
 
   {
-    canActivate:[canActivateAuth],
     path: 'home',
     loadComponent: () => import('./features/home/home').then(m => m.Home)
   },
@@ -15,7 +14,7 @@ export const routes: Routes = [
   },
   {
     path:"",
-    redirectTo:"dashboard",
+    redirectTo:"home",
     pathMatch:"full"
   }
 ];

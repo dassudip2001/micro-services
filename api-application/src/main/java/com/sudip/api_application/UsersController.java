@@ -3,6 +3,8 @@ package com.sudip.api_application;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/users")
+@Slf4j
 public class UsersController {
 
     @Value("${server.port}")
@@ -25,6 +28,7 @@ public class UsersController {
                 Map.of("id", "3", "name", "Charlie"));
         for (Map<String, String> user : users) {
             System.out.println("User ID: " + user.get("id") + ", Name: " + user.get("name"));
+            log.info("User Id" + user.get("id"));
         }
         return ResponseEntity.ok(users);
     }
